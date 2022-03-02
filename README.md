@@ -2,7 +2,7 @@
 
 
 | 题目     |     Topics       | Time Complexity | Space Complexity|
-| ------------- |:-------------:| -----:|
-| 1. Two Sum     | Array, Hash Table |  O(N)    | O(N)
-| 2.     |       |   |
-| 3. |       |     |
+| ------------- |:-------------:| -----:| -----:|
+| 1. Two Sum     | Array, Hash Table |  O(N)    | O(N)|
+| 2.     |       |   | |
+| 3. |       |     | |
