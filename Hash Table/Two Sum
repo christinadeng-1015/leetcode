@@ -25,7 +25,6 @@ Time Complexity为O(n), Space Complexity O(n)
 */
 
 function twoSum(nums, target) {
-    //create an empty hash table
     //创造一个空的哈希表
     let ht = {};
     for (num of nums) {
@@ -36,8 +35,10 @@ function twoSum(nums, target) {
             return [ht[num], nums.indexOf(num)];
         } else {
             //num不是哈希表的key，把它加入哈希表看之后能不能找到他的pair
-            // 设哈希表的key第一个数字的pair，value为第一个数字的index
+            //设哈希表的key为第一个数字的pair，value为第一个数字的index
             ht[target - num] = nums.indexOf(num);
         }
     }
 }
+
+// Test cases
