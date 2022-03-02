@@ -16,11 +16,31 @@ Input: nums = [3,3], target = 6, Output: [0,1]
 <blockquote>
 思路：
 第一种方法 - brute force 暴力破解
-把每一个数列中的数字两两相加，找出和为target的一对数字
-Time Complexity为O(n^2)
-Space Complexity为O(1)
+把每一个数列中的数字两两相加，找出和为target的一对数字  
+Time Complexity为O(n^2)  
+Space Complexity为O(1)  
 
 第二种方法 - hash table哈希表
-用哈希表来存所需要的数字
-Time Complexity为O(n), Space Complexity O(n)
+用哈希表来存第一个数字所需要的第二个数字，在第二个数字出现时返回两个数字的index  
+Time Complexity为O(n)  
+Space Complexity为O(n)  
 </blockquote>
+
+<pre>
+    function twoSum(nums, target) {
+        //创造一个空的哈希表
+        let ht = {};
+        for (num of nums) {
+            if (num in ht) {
+                // num是ht的一个key，找到了pair中的第二个数字
+                // 第一个数字的index为ht[num]
+                // 第二个数字的index为nums.indexOf(num)
+                return [ht[num], nums.indexOf(num)];
+            } else {
+                //num不是哈希表的key，把它加入哈希表看之后能不能找到他的pair
+                //设哈希表的key为第一个数字的pair，value为第一个数字的index
+                ht[target - num] = nums.indexOf(num);
+            }
+        }
+    }
+</pre>
