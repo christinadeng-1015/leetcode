@@ -27,7 +27,7 @@ Space Complexity为O(n)
 </blockquote>
 
 <pre>
-```javaScript
+```javascript
     function twoSum(nums, target) {
         //创造一个空的哈希表
         let ht = {};
@@ -44,5 +44,5 @@ Space Complexity为O(n)
             }
         }
     }
-```javaScript
+```javascript
 </pre>
