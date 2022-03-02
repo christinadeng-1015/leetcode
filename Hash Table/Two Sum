@@ -1,0 +1,43 @@
+// 1. Two Sum [Easy]
+
+/*
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+You can return the answer in any order.
+
+Example 1:
+Input: nums = [2,7,11,15], target = 9, Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+Example 2:
+Input: nums = [3,2,4], target = 6, Output: [1,2]
+Example 3:
+Input: nums = [3,3], target = 6, Output: [0,1]
+
+在一个数组里，有两个数字相加等于target，找出这两个数字在数列中的位置
+
+思路 #1 brute force
+把每一个数列中的数字两两相加，找出和为target的一对数字
+Time Complexity为O(n^2), Space Complexity O(1)
+
+思路 #2 Hash Map
+用哈希表来存所需要的数字
+Time Complexity为O(n), Space Complexity O(n)
+*/
+
+function twoSum(nums, target) {
+    //create an empty hash table
+    //创造一个空的哈希表
+    let ht = {};
+    for (num of nums) {
+        if (num in ht) {
+            // num是ht的一个key，找到了pair中的第二个数字
+            // 第一个数字的index为ht[num]
+            // 第二个数字的index为nums.indexOf(num)
+            return [ht[num], nums.indexOf(num)];
+        } else {
+            //num不是哈希表的key，把它加入哈希表看之后能不能找到他的pair
+            // 设哈希表的key第一个数字的pair，value为第一个数字的index
+            ht[target - num] = nums.indexOf(num);
+        }
+    }
+}
